@@ -1,0 +1,18 @@
+﻿@{
+    ViewBag.Title = "Login Page";
+    Layout = "~/Views/Shared/_LoginLayout.cshtml";
+}
+
+<form action="/login/signIn" method="post">
+    <h1>Login</h1>
+    <input type="text" name="user" placeholder="user name" />
+    <input type="text" name="password" placeholder="password" />
+    <button type="submit">Sign In</button>
+    <a href="@Url.Action("SignUp")" class="btn btn-default" >Create Account</a>
+
+    @if (ViewBag.ErrorMessage != null)
+    {
+        <h3>@ViewBag.ErrorMessage</h3>
+    }
+
+</form>
