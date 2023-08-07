@@ -9,31 +9,40 @@ using System.Web;
 
 namespace ConnectFourGame.DB
 {
-    public class UserDB
+    public class GameDB
     {
-        private string JsonPath = HttpContext.Current.Server.MapPath("~/Json/User.json");
+        private string JsonPath = HttpContext.Current.Server.MapPath("~/Json/Game.json");
 
-        private List<User> ConnectDB()
+        private List<Game> ConnectDB()
         {
             //connectar no json
-            List<User> users = new List<User>();
+            List<Game> games = new List<Game>();
             //Retornar lista de registros
             using (StreamReader reader = new StreamReader(JsonPath))
             {
                 var json = reader.ReadToEnd();
-                users = JsonConvert.DeserializeObject<List<User>>(json);
+                games = JsonConvert.DeserializeObject<List<Game>>(json);
             }
 
-            return users;
+            return games;
         }
 
-        private void SaveToDB(List<User> model)
+        private void SaveToDB(List<Game> model)
         {
             //atualizar Json
             var jsonString = JsonConvert.SerializeObject(model, Formatting.Indented);
             System.IO.File.WriteAllText(JsonPath, jsonString);
         }
 
+        public List<Game> GetMany(int userId)
+        {
+            //chamar connect DB para pegar lista de registros
+            var games = ConnectDB();
+            //filtrar baseado nos parametros da funcao
+            var gamesPerUser = games.Where(g => g.UserId == userId);
+
+            return gamesPerUser.ToList();
+        }
         private int GetMaxId()
         {
             // pegar lista de registros 
@@ -43,48 +52,39 @@ namespace ConnectFourGame.DB
             return 0;
         }
 
-        public List<User> GetMany(string email)
+
+        public Game Get(int gameId)
         {
             //chamar connect DB para pegar lista de registros
-
+            var game = ConnectDB();
             //filtrar baseado nos parametros da funcao
+            var gameExists = game.FirstOrDefault(p => p.GameId == gameId);
 
-
-            return Enumerable.Empty<User>().ToList();
+            return gameExists;
         }
 
-        public User Get(string username)
-        {
-            //chamar connect DB para pegar lista de registros
-            var person = ConnectDB();
-            //filtrar baseado nos parametros da funcao
-            var userExists = person.FirstOrDefault(p => p.Username == username);
-
-            return userExists;
-        }
-
-        public int Insert(User model)
+        public int Insert(Game model)
         {
             //Chamar o DB
-            var users = ConnectDB();
+            var games = ConnectDB();
             // Gerar novo Id - atualizar registro para ter um Id valido
-            var lastUserId = 1;
+            var lastGameId = 1;
             
-            if(users.Count > 0)
+            if(games.Count > 0)
             {
-                lastUserId = users.Max(u => u.UserId);
-                lastUserId++;
+                lastGameId = games.Max(g => g.GameId);
+                lastGameId++;
             }
 
-            model.UserId = lastUserId;
-            users.Add(model);
+            model.GameId = lastGameId;
+            games.Add(model);
             //adicionar o registro na lista de itens
-            SaveToDB(users);
+            SaveToDB(games);
 
-            return model.UserId;
+            return model.GameId;
         }
 
-        public int Update(User model)
+        public int Update(Game model)
         {
             //remover registro da lista baseado no filtro
 
@@ -95,14 +95,23 @@ namespace ConnectFourGame.DB
             return model.UserId;
         }
 
-        public bool Delete(int userId)
+        public bool Delete(int gameId)
         {
             //connectar toDB para pegar lista de registros
-
+            var game = ConnectDB();
 
             //remover registro da lista baseado no filtro
+            var gameDelete = game.FirstOrDefault(g => g.GameId == gameId);
 
+            if (gameDelete != null)
+            {
+                game.Remove(gameDelete);
+                SaveToDB(game);
+
+                return true;
+            }
             // Retornar true or False se removeu
+
 
             return false;
         }

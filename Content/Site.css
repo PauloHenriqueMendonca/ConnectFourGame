@@ -38,7 +38,7 @@ button, .btn{
     text-align:center;
     border-radius:5px;
     width: 175px;
-    margin: 5px auto;
+    margin: 10px auto;
 }
 input {
     display: block;
@@ -46,4 +46,88 @@ input {
     border-radius: 5px;
 }
 
+#board {
+    height: 540px;
+    width: 620px;
 
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0px auto;
+
+    background-color: blue;
+    border:10px solid navy;
+    text-align: center; 
+}
+
+h1{
+    margin: 40px auto;
+    text-align:center;
+}
+h2 {
+    margin: 10px auto;
+    text-align: center;
+}
+.tile{
+    width: 75px;
+    height: 75px;
+    margin: 5px;
+    background-color: white;
+    border-radius: 50%;
+    border: 5px solid navy;
+}
+
+.red-piece{
+    background-color: red;
+}
+.yellow-piece{
+    background-color: yellow;
+}
+.white-piece{
+    background-color: white;
+}
+
+th{
+    background-color: lightgray;
+    width: 500px;
+    text-align: center;
+    padding: 0.3rem;
+    font-size: 16px;
+}
+
+td {
+    padding: 0.2rem;
+    text-align: center;
+    height: auto;
+}
+
+tr:nth-of-type(2n) {
+    background: hsl(0 0% 0%/ 0.03);
+}
+
+
+.button30 {
+    width: 35px;
+    height: 35px;
+    align-items: center;
+    display: flex;
+}
+
+.svg24 {
+    width: 24px;
+    height: 24px;
+}
+
+.svgIcon.svgLight {
+    fill: rgba(255, 255, 255, 1);
+    color: rgba(255, 255, 255, 1);
+}
+
+.svgIcon.svgDark {
+    fill: rgba(0, 0, 0, 0.54);
+    color: rgba(0, 0, 0, 0.54);
+}
+
+.svgIcon.svgBlue {
+    fill: #005C99;
+    color: #005C99;
+}
