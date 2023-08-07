@@ -1,5 +1,4 @@
 ﻿using ConnectFourGame.Logic;
-using ConnectFourGame.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -35,9 +34,17 @@ namespace ConnectFourGame.Controllers
             return View("SignUp");
         }
 
+        // GET: Login/Create
+        public ActionResult Create()
+        {
+            var logic = new UserLogic();
+            //var newUser = logic.Insert(user, email, password, passwordConfirmation);
+            return View();
+        }
+
         // POST: Login/Create
         [HttpPost]
-        public ActionResult Create(UserVM model)
+        public ActionResult Create(UserLogic model)
         {
             try
             {
@@ -49,7 +56,29 @@ namespace ConnectFourGame.Controllers
             }
             catch
             {
-                return View("Index");
+                return View();
+            }
+        }
+
+        // GET: Login/Edit/5
+        public ActionResult Edit(int id)
+        {
+            return View();
+        }
+
+        // POST: Login/Edit/5
+        [HttpPost]
+        public ActionResult Edit(int id, FormCollection collection)
+        {
+            try
+            {
+                // TODO: Add update logic here
+
+                return RedirectToAction("Index");
+            }
+            catch
+            {
+                return View();
             }
         }
 

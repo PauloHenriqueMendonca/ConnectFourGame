@@ -1,20 +1,3 @@
-[
-  {
-    "userId": 1,
-    "user": "paulo",
-    "password": "as",
-    "email": "asdf@gmail.com"
-  },
-  {
-    "userId": 2,
-    "user": "asdf",
-    "password": "asd",
-    "email": "as@gmail.com"
-  },
-  {
-    "userId": 3,
-    "user": "cesar",
-    "password": "1425",
-    "email": "c@gmail.com"
-  }
-]
+{
+
+}
