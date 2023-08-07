@@ -1,6 +1,5 @@
 ﻿using ConnectFourGame.DB;
 using ConnectFourGame.Models;
-using ConnectFourGame.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,35 +21,31 @@ namespace ConnectFourGame.Logic
 
         public User Get(string userName)
         {
+            DB.Get(userName);
+            //fazer validacao necessaria para pegar um registro
+            if(userName == "admin")
+            {
+                
+            }
             //chamar o DB para pegar o registro
             return DB.Get(userName);
         }
 
-        public int Insert(UserVM model)
+        public int Insert(string userName, string email, string password, string passwordConfirmation)
         {
             //fazer validacao necessaria para pegar um registro
-            var user = DB.Get(model.Username);
+            //Valida se as senhas batem
+
             //Verificar se o novo usuario que esta sendo cadastrado ja existe antes 
 
-            if(user == null)
-            {
-                //Validar se as senhas batem
-                if(model.PasswordConfirmation == model.PasswordConfirmation)
-                {
-                    //criar modelo  
-                    var u = new User();
-                    u.Username = model.Username;
-                    u.Password = model.Password;
-                    u.Email = model.Email;
 
-                    DB.Insert(u);
-                }
-                else
-                {
-                    throw new ArgumentOutOfRangeException(nameof(model.Password), "Passwords must match!");
-                }
-            }
-            
+            //criar modelo
+            var user = new User();
+            user.Username = userName;
+            user.Email = email;
+            user.Password = password;
+
+
             //chamar o DB para inserir o registro
             return DB.Insert(user);
         }

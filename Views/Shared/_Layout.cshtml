@@ -7,22 +7,6 @@
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
-
-<svg xmlns=" http:www.w3.org/2000/svg" style="display: none;">
-    <defs>
-        <symbol id="deleteIcon" viewBox="0 0 24 24">
-            <path stroke-width="0" fill="none" d="M0 0h24v24H0z" />
-            <path stroke-width="0" d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z" />
-        </symbol>
-
-        <symbol id="playIcon" viewBox="0 0 24 24">
-            <path stroke-width="0" fill="none" d="M0 0h24v24H0z" />
-            <path stroke-width="0" d="M8 5v14l11-7z" />
-        </symbol>
-
-    </defs>
-</svg>
-
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
@@ -32,16 +16,15 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("ConnectFour Game", "Index", "Home", new { area = "", userId = Request.QueryString["userId"] }, new { @class = "navbar-brand" })
+                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home", new { userId = Request.QueryString["userId"] }, new { })</li>
-                    <li><a href="@Url.Action("GameHistory", new { userID = Request.QueryString["userId"] })">Game History</a></li>
-                    <li><a href="@Url.Action("Game", new { userID = Request.QueryString["userId"] })">Play</a></li>
-                    <li><a href="@Url.Action("Index","Login")">Logout</a></li>  
+                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li>@Html.ActionLink("About", "About", "Home")</li>
+                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
                 </ul>
-            </div>s
+            </div>
         </div>
     </div>
     <div class="container body-content">

@@ -1,5 +1,4 @@
 ﻿using ConnectFourGame.Models;
-using ConnectFourGame.ViewModels;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -27,8 +26,34 @@ namespace ConnectFourGame.DB
             return users;
         }
 
-        private void SaveToDB(List<User> model)
+        private void SaveToDB(User model)
         {
+            //connectar toDB para pegar lista de registros
+            ConnectDB();
+
+            //Antes de salvar preciso de verificar se o usuario ja existe
+            //var userExists = model.FirstOrDefault(uexists => uexists.Username == usuario);
+
+            //if (userExists != null)
+            //{
+            //    ViewBag.ErrorMessage = "Usuario ja existe, favor tente outro usuario!";
+            //    return View("Cadastro");
+            //}
+            //else
+            //{
+            //    var ultimoUserID = model.Max(user => user.UserId);
+            //    ultimoUserID++;
+
+            //    //adicionar registro na lista Json
+            //    var u = new User();
+            //    u.UserId = ultimoUserID;
+            //    u.Username = usuario;
+            //    u.Email = email;
+            //    u.Password = senha;
+
+            //    usuarios.Add(u);
+            //}
+
             //atualizar Json
             var jsonString = JsonConvert.SerializeObject(model, Formatting.Indented);
             System.IO.File.WriteAllText(JsonPath, jsonString);
@@ -53,33 +78,24 @@ namespace ConnectFourGame.DB
             return Enumerable.Empty<User>().ToList();
         }
 
-        public User Get(string username)
+        public User Get(string userName)
         {
             //chamar connect DB para pegar lista de registros
-            var person = ConnectDB();
+            ConnectDB();
             //filtrar baseado nos parametros da funcao
-            var userExists = person.FirstOrDefault(p => p.Username == username);
+            //var userExists = users.FirstOrDefault(uexists => uexists.Username == usuario);
 
-            return userExists;
+            return null;
         }
 
         public int Insert(User model)
         {
             //Chamar o DB
-            var users = ConnectDB();
+            ConnectDB();
             // Gerar novo Id - atualizar registro para ter um Id valido
-            var lastUserId = 1;
-            
-            if(users.Count > 0)
-            {
-                lastUserId = users.Max(u => u.UserId);
-                lastUserId++;
-            }
 
-            model.UserId = lastUserId;
-            users.Add(model);
             //adicionar o registro na lista de itens
-            SaveToDB(users);
+
 
             return model.UserId;
         }
