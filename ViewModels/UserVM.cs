@@ -1,12 +1,8 @@
 ﻿using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 
-namespace ConnectFourGame.Models
+namespace ConnectFourGame.ViewModels
 {
-    public class User
+    public class UserVM
     {
         [JsonProperty("userId")]
         public int UserId { get; set; }
@@ -14,10 +10,14 @@ namespace ConnectFourGame.Models
         [JsonProperty("user")]
         public string Username { get; set; }
 
+        [JsonProperty("email")]
+        public string Email { get; set; }
+
         [JsonProperty("password")]
         public string Password { get; set; }
 
-        [JsonProperty("email")]
-        public string Email { get; set; }
+        [JsonProperty("passwordConfirmation")]
+        public string PasswordConfirmation { get; set; }
+
     }
 }
