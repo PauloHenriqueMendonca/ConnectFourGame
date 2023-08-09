@@ -9,23 +9,41 @@ var winner;
 var rows = 6;
 var columns = 7;
 
-$(document).on("click", "#restartGame", restartGame);
+$(document).on("click", "#restartGame", setGame);
 $(document).on("click", ".deleteGame", DeleteGame);
-
 window.onload = function (e) {
     if (e.target.location.pathname == "/Home/Game")
     setGame();
 }
 
+function togglePlayer() {
+    if (currentPlayer == playerRed) {
+        $('#Player').addClass("red-piece");
+        $('#Player').removeClass("yellow-piece");
+    } else {
+        $('#Player').removeClass("red-piece");
+        $('#Player').addClass("yellow-piece");
+    }
+}
+
 function setGame() {
     // board will correspond to the tiles in the html page
     board = [];
-    currColumns = [5, 5, 5, 5, 5, 5, 5];
+    currColumns = Array(rows).fill(rows - 1);
+    currentPlayer = playerRed;
+    quantMoves = 0;
+    gameOver = false;
+
+    $('#PlayerBox').show();
+    $('#board').empty();
+    $('#winner').empty();
+
+    togglePlayer();
 
     for (let r = 0; r < rows; r++) {
         let row = [];
         for (let c = 0; c < columns; c++) {
-            row.push(' ');
+            row.push('');
 
             //creates a div tag and set the id to the index position where it first starts at [0,0]
             //then add a style class of tile and take the tag and append it 
@@ -72,6 +90,8 @@ function setPiece() {
         currentPlayer = playerRed;
     }
 
+    togglePlayer();
+
     //update r so it subtracts 1 to move up one row os it updates the height of the column
     r -= 1;
     currColumns[c] = r; // update the array
@@ -85,7 +105,7 @@ function checkWinner() {
     //Horizontal check for winner will loop through the row piece by piece
     for (let r = 0; r < rows; r++) {
         for (let c = 0; c < columns-3; c++) {
-            if (board[r][c] != ' ') {
+            if (board[r][c] != '') {
                 if (board[r][c] == board[r][c + 1] && board[r][c + 1] == board[r][c + 2] && board[r][c + 2] == board[r][c + 3]) {
                     setWinner(r, c);
                     return;
@@ -96,7 +116,7 @@ function checkWinner() {
     //verticaly check for the winner
     for (var c = 0; c < columns; c++) {
         for (var r = 0; r < rows-3; r++) {
-            if (board[r][c] != ' ') {
+            if (board[r][c] != '') {
                 if (board[r][c] == board[r + 1][c] && board[r + 1][c] == board[r + 2][c] && board[r+2][c] == board[r+3][c]) {
                     setWinner(r, c);
                     return;
@@ -107,7 +127,7 @@ function checkWinner() {
     //antidiagonal check for the winner
     for (var r = 0; r < rows - 3; r++) {
         for (var c = 0; c < columns-3; c++) {
-            if (board[r][c] != ' ') {
+            if (board[r][c] != '') {
                 if (board[r][c] == board[r + 1][c + 1] && board[r + 1][c + 1] == board[r + 2][c + 2] && board[r + 2][c + 2] == board[r + 3][c + 3]) {
                     setWinner(r, c);
                     return;
@@ -118,7 +138,7 @@ function checkWinner() {
     // diagonal check for winner
     for (var r = 3; r < rows; r++) {
         for (var c = 0; c < columns-3; c++) {
-            if (board[r][c] != ' ') {
+            if (board[r][c] != '') {
                 if (board[r][c] == board[r - 1][c + 1] && board[r - 1][c + 1] == board[r - 2][c + 2] && board[r - 2][c + 2] == board[r - 3][c + 3]) {
                     setWinner(r, c);
                     return;
@@ -130,6 +150,7 @@ function checkWinner() {
 }
 
 function setWinner(r, c) {
+    $('#PlayerBox').hide();
     winner = document.getElementById("winner");
 
     if (board[r][c] == playerRed) {
@@ -170,15 +191,13 @@ function saveGame() {
 }
 
 function restartGame() {
-    $('.red-piece').removeClass('red-piece');
-    $('.yellow-piece').removeClass('yellow-piece');
-    board = Array(rows).fill(Array(columns).fill(' '));
-    $('#winner').hide();
+    $('#board').empty();
+    $('#winner').empty();
     currentPlayer = playerRed;
     quantMoves = 0;
-    currColumns = [5, 5, 5, 5, 5, 5, 5];
     gameOver = false;
-    $("#saveGame").hide();
+
+    setGame();
 }
 
 function DeleteGame(e) {

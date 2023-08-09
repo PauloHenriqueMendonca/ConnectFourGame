@@ -19,5 +19,201 @@
     "userId": 3,
     "winner": "Red wins!",
     "quantMoves": "1"
+  },
+  {
+    "date": "2023-08-09T11:15:08.3978709-03:00",
+    "gameId": 7,
+    "userId": 1,
+    "winner": "Red wins!",
+    "quantMoves": "7"
+  },
+  {
+    "date": "2023-08-09T11:24:57.6976604-03:00",
+    "gameId": 8,
+    "userId": 1,
+    "winner": "Red wins!",
+    "quantMoves": "1"
+  },
+  {
+    "date": "2023-08-09T11:26:05.8661491-03:00",
+    "gameId": 9,
+    "userId": 1,
+    "winner": "Red wins!",
+    "quantMoves": "1"
+  },
+  {
+    "date": "2023-08-09T11:26:59.9637041-03:00",
+    "gameId": 10,
+    "userId": 1,
+    "winner": "Red wins!",
+    "quantMoves": "1"
+  },
+  {
+    "date": "2023-08-09T11:28:43.5475002-03:00",
+    "gameId": 11,
+    "userId": 1,
+    "winner": "Yellow Wins!",
+    "quantMoves": "2"
+  },
+  {
+    "date": "2023-08-09T11:29:07.2191492-03:00",
+    "gameId": 12,
+    "userId": 1,
+    "winner": "Red wins!",
+    "quantMoves": "1"
+  },
+  {
+    "date": "2023-08-09T11:50:42.8221815-03:00",
+    "gameId": 13,
+    "userId": 1,
+    "winner": "Red wins!",
+    "quantMoves": "7"
+  },
+  {
+    "date": "2023-08-09T11:53:13.9535465-03:00",
+    "gameId": 14,
+    "userId": 1,
+    "winner": "Red wins!",
+    "quantMoves": "11"
+  },
+  {
+    "date": "2023-08-09T11:53:47.5436743-03:00",
+    "gameId": 15,
+    "userId": 1,
+    "winner": "Red wins!",
+    "quantMoves": "1"
+  },
+  {
+    "date": "2023-08-09T11:56:20.4037197-03:00",
+    "gameId": 16,
+    "userId": 1,
+    "winner": "Yellow Wins!",
+    "quantMoves": "22"
+  },
+  {
+    "date": "2023-08-09T11:57:25.7697739-03:00",
+    "gameId": 17,
+    "userId": 1,
+    "winner": "Red wins!",
+    "quantMoves": "7"
+  },
+  {
+    "date": "2023-08-09T12:05:02.1934951-03:00",
+    "gameId": 18,
+    "userId": 1,
+    "winner": "Red wins!",
+    "quantMoves": "7"
+  },
+  {
+    "date": "2023-08-09T12:05:17.350995-03:00",
+    "gameId": 19,
+    "userId": 1,
+    "winner": "Yellow Wins!",
+    "quantMoves": "8"
+  },
+  {
+    "date": "2023-08-09T12:05:43.1447106-03:00",
+    "gameId": 20,
+    "userId": 1,
+    "winner": "Yellow Wins!",
+    "quantMoves": "8"
+  },
+  {
+    "date": "2023-08-09T12:07:03.6499468-03:00",
+    "gameId": 21,
+    "userId": 1,
+    "winner": "Yellow Wins!",
+    "quantMoves": "8"
+  },
+  {
+    "date": "2023-08-09T12:07:14.173641-03:00",
+    "gameId": 22,
+    "userId": 1,
+    "winner": "Red wins!",
+    "quantMoves": "7"
+  },
+  {
+    "date": "2023-08-09T12:08:41.1843464-03:00",
+    "gameId": 23,
+    "userId": 1,
+    "winner": "Yellow Wins!",
+    "quantMoves": "8"
+  },
+  {
+    "date": "2023-08-09T12:08:48.487767-03:00",
+    "gameId": 24,
+    "userId": 1,
+    "winner": "Red wins!",
+    "quantMoves": "7"
+  },
+  {
+    "date": "2023-08-09T12:08:58.7170965-03:00",
+    "gameId": 25,
+    "userId": 1,
+    "winner": "Red wins!",
+    "quantMoves": "7"
+  },
+  {
+    "date": "2023-08-09T12:11:58.4782722-03:00",
+    "gameId": 26,
+    "userId": 1,
+    "winner": "Red wins!",
+    "quantMoves": "7"
+  },
+  {
+    "date": "2023-08-09T12:12:30.8163901-03:00",
+    "gameId": 27,
+    "userId": 1,
+    "winner": "Red wins!",
+    "quantMoves": "7"
+  },
+  {
+    "date": "2023-08-09T12:17:32.5027682-03:00",
+    "gameId": 28,
+    "userId": 1,
+    "winner": "Red wins!",
+    "quantMoves": "13"
+  },
+  {
+    "date": "2023-08-09T12:17:53.364862-03:00",
+    "gameId": 29,
+    "userId": 1,
+    "winner": "Yellow Wins!",
+    "quantMoves": "12"
+  },
+  {
+    "date": "2023-08-09T12:21:10.5602743-03:00",
+    "gameId": 30,
+    "userId": 1,
+    "winner": "Red wins!",
+    "quantMoves": "7"
+  },
+  {
+    "date": "2023-08-09T12:21:46.0946695-03:00",
+    "gameId": 31,
+    "userId": 1,
+    "winner": "Red wins!",
+    "quantMoves": "7"
+  },
+  {
+    "date": "2023-08-09T12:21:54.4683943-03:00",
+    "gameId": 32,
+    "userId": 1,
+    "winner": "Red wins!",
+    "quantMoves": "11"
+  },
+  {
+    "date": "2023-08-09T12:22:00.0271335-03:00",
+    "gameId": 33,
+    "userId": 1,
+    "winner": "Yellow Wins!",
+    "quantMoves": "8"
+  },
+  {
+    "date": "2023-08-09T12:35:14.6341679-03:00",
+    "gameId": 34,
+    "userId": 1,
+    "winner": "Red wins!",
+    "quantMoves": "7"
   }
 ]
